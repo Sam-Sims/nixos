@@ -9,4 +9,8 @@ nix flakes develop
 colmena apply
 ```
 
-Will apply config remote to hosts defined in ./hosts/*
+This will apply config remote to hosts defined in ./hosts/*
+
+## Hosts
+
+Hosts are primarliy nixos LXC containers deployed via proxmox.
