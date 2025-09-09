@@ -1,6 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, modulesPath, ... }:
 {
-  imports = [../../common/proxmox-lxc.nix];
+  imports = [
+    (modulesPath + "/virtualisation/proxmox-lxc.nix")
+    ../../users/sam
+  ];
   deployment = {
     targetHost = "192.168.0.13";
     targetPort = 22;
@@ -20,8 +23,12 @@
   networking.hostName = "combee";
 
   environment.systemPackages = with pkgs; [
-    htop
+    git
   ];
+
+  programs.fish = {
+    enable = true;
+  };
 
   system.stateVersion = "25.05";
 }
